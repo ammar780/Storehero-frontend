@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { scrollbar-width: thin; scrollbar-color: #d4d4d8 transparent; }
+  ::selection { background: #bbf7d0; color: #14532d; }
+}
+
+@layer components {
+  /* Stagger children animations */
+  .stagger > * { opacity: 0; animation: slideUp 0.5s ease-out forwards; }
+  .stagger > *:nth-child(1) { animation-delay: 0.04s }
+  .stagger > *:nth-child(2) { animation-delay: 0.08s }
+  .stagger > *:nth-child(3) { animation-delay: 0.12s }
+  .stagger > *:nth-child(4) { animation-delay: 0.16s }
+  .stagger > *:nth-child(5) { animation-delay: 0.2s }
+  .stagger > *:nth-child(6) { animation-delay: 0.24s }
+  .stagger > *:nth-child(7) { animation-delay: 0.28s }
+  .stagger > *:nth-child(8) { animation-delay: 0.32s }
+
+  /* Glass card */
+  .glass { @apply bg-white/70 backdrop-blur-xl border border-white/80 shadow-card; }
+
+  /* Skeleton loader */
+  .skeleton {
+    @apply relative overflow-hidden bg-surface-100 rounded-xl;
+  }
+  .skeleton::after {
+    content: '';
+    @apply absolute inset-0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+    animation: shimmer 2s linear infinite;
+  }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Dark mode overrides */
+.dark .bg-white { background-color: #1c1c1e; }
+.dark .border-surface-100 { border-color: #2c2c2e; }
+.dark .border-surface-200 { border-color: #3a3a3c; }
+.dark .text-surface-800 { color: #e5e5ea; }
+.dark .text-surface-600 { color: #aeaeb2; }
+.dark .text-surface-500 { color: #8e8e93; }
+.dark .text-surface-400 { color: #636366; }
+.dark .bg-surface-50 { background-color: #0d0d0f; }
+.dark .bg-surface-100 { background-color: #1c1c1e; }
+.dark .hover\:bg-surface-50\/50:hover { background-color: rgba(28,28,30,0.5); }
+.dark .bg-brand-50 { background-color: rgba(241,195,73,0.08); }
+.dark .border-brand-200 { border-color: rgba(241,195,73,0.2); }
+.dark input, .dark select { background-color: #2c2c2e; color: #e5e5ea; border-color: #3a3a3c; }
