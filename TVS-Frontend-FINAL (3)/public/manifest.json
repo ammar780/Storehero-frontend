@@ -1,0 +1,14 @@
+{
+  "name": "TVS Profit Dashboard",
+  "short_name": "TVS Profit",
+  "description": "The Vitamin Shots - Profit Analytics Dashboard",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#3e1f0b",
+  "theme_color": "#f1c349",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
